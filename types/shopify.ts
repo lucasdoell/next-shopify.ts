@@ -204,6 +204,16 @@ export const CheckoutUpdateSchema = z.object({
   ),
 });
 
+export const ProductByCollection = z.object({
+  node: z.object({
+    title: z.string(),
+    id: z.string(),
+    handle: z.string(),
+    priceRange: PriceRangeSchema,
+    images: ImageSchema,
+  }),
+});
+
 export type ProductQueryResultType = z.infer<typeof ProductQueryResult>;
 export type GetProductsInCollectionResultType = z.infer<
   typeof GetProductsInCollectionResult
@@ -218,6 +228,7 @@ export type CheckoutLineItemsReplaceType = z.infer<
   typeof CheckoutLineItemsReplaceSchema
 >;
 export type CheckoutUpdateType = z.infer<typeof CheckoutUpdateSchema>;
+export type ProductByCollectionType = z.infer<typeof ProductByCollection>;
 
 export type ShopifyDataType =
   | ProductQueryResultType
