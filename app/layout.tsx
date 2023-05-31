@@ -1,6 +1,7 @@
 import ShopProvider from "@/context/shopContext";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { NavigationBar } from "@/components/navigation-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,8 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ShopProvider>{children}</ShopProvider>
+      <body className={inter.className + " dark"}>
+        <ShopProvider>
+          <NavigationBar />
+          {children}
+        </ShopProvider>
       </body>
     </html>
   );
