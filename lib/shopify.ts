@@ -48,9 +48,11 @@ async function ShopifyData<T extends ShopifyDataType>(query: string) {
   }
 }
 
-export async function getProductsInCollection(): Promise<GetProductsInCollectionResultType> {
+export async function getProductsInCollection(
+  collection: string
+): Promise<GetProductsInCollectionResultType> {
   const query = `{
-    collection(handle: "flower-subscriptions") {
+    collection(handle: "${collection}") {
       title
       products(first: 25) {
         edges {
